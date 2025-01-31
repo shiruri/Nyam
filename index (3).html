@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyannn Nyannn</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #f6d365);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in-out;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #ff6f61;
+      font-size: 2em;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    p {
+      font-size: 1em;
+      margin: 15px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .cat-emoticon {
+      font-size: 2em;
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .button {
+      background-color: #ff6f61;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+      display: block;
+      margin: 20px auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .button:hover {
+      background-color: #ff3b2f;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #ff6f61;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .eye-checkup {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .eye-checkup h2 {
+      color: #ff6f61;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .eye-checkup p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .glasses-message {
+      font-size: 1.2em;
+      margin-top: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .glasses-emoticon {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+
+    /* Scroll Animations */
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+      .cat-emoticon {
+        font-size: 1.5em;
+      }
+      .message {
+        font-size: 1em;
+      }
+    }
+    /* Water Check Styles */
+.water-check {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(173, 216, 230, 0.2);
+  border-radius: 10px;
+  opacity: 0; /* Initial opacity for scroll animation */
+  transform: translateY(20px); /* Initial transform for scroll animation */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.water-response {
+  margin-top: 20px;
+  text-align: center;
+  opacity: 0; /* Initial opacity for scroll animation */
+  transform: translateY(20px); /* Initial transform for scroll animation */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey Youuu! (✿◠‿◠)</h1>
+    <p>It's totally okay to feel sad sometimesss. Life can be tough, but you're tougher yes yes. Here's a little reminder that it's gonna be okayy (this is the product of having a lot of time and being bad at comforting so I just made thiss)</p>
+    
+    <div class="cat-emoticon">(=^･ω･^=)</div>
+
+    <p>Take a deep breathhh even if it doesn't feel like it right noww</p>
+
+    <button class="button" onclick="toggleMessage()">Click for a surprise</button>
+
+    <div id="hiddenMessage" class="hidden message">
+      <div class="cat-emoticon">(ᵔᴥᵔ)</div>
+      <p>You're doing amazing, and these virtual hugs are just for you! (づ｡◕‿‿◕｡)づ</p>
+    </div>
+
+    <div class="eye-checkup">
+      <h2>Cat Eye Checkup Session (＾• ω •＾)</h2>
+      <p>Heyyy! Let's do a quick eye checkup with cats because why nottt?</p>
+      <div class="cat-emoticon">(=｀ェ´=)</div>
+      <p>Is this cat wearing glasses? Nooo? Maybe you need some! (◕‿◕✿)</p>
+      <button class="button" onclick="toggleGlasses()">Click for Glasses Tips</button>
+      <div id="glassesMessage" class="hidden glasses-message">
+        <div class="glasses-emoticon">(◕‿◕)👓</div>
+        <p>If you have a headache from using wrong prescription glasses:</p>
+        <ul style="text-align: left; display: inline-block;">
+          <li>Take a break from screens and rest your eyes.</li>
+          <li>Adjust your glasses or visit an optometrist for a proper prescription.</li>
+          <li>Use the 20-20-20 rule: Every 20 minutes, look at something 20 feet away for 20 seconds.</li>
+        </ul>
+        <p>Always takee careee of your eyes! (◠‿◠)💖</p>
+      </div>
+    </div>
+
+
+    <!-- Relax Button -->
+    <button class="button" onclick="toggleRelax()">Do You Want to Relax? (✿◠‿◠)</button>
+    <div id="relaxMessage" class="hidden message">
+      <p>Here’s a quick relaxation tip: Close your eyes, take a deep breath in for 4 seconds, hold for 7 seconds, and exhale slowly for 8 seconds. Repeat 4 times. (◕‿◕✿)</p>
+    </div>
+
+    <!-- Calm Down Tips Button -->
+    <button class="button" onclick="toggleCalmTips()">Calm Down Tips (＾▽＾)</button>
+    <div id="calmTipsMessage" class="hidden message">
+      <p>Here are some tips to calm down:</p>
+      <ul style="text-align: left; display: inline-block;">
+        <li>Take deep breaths and focus on your breathing.</li>
+        <li>Listen to calming music or nature sounds.</li>
+        <li>Write down your thoughts in a journal.</li>
+        <li>Go for a walk or stretch your body.</li>
+      </ul>
+      <p>You’ve got this! (✿◠‿◠)💖</p>
+    </div>
+    
+    <!-- Add this inside the .card div, above the closing </div> -->
+    <div class="water-check">
+  <h2>Hydration Check! (っ◕‿◕)っ🚰</h2>
+  <p>Have you had your water today? (¬‿¬ )</p>
+  <button class="button water-btn" onclick="toggleWaterResponse('yes')">Yesss! I'm hydrated! 🎉</button>
+  <button class="button water-btn" onclick="toggleWaterResponse('no')">Ummm... maybe not? 😅</button>
+
+  <div id="waterYes" class="hidden water-response">
+    <div class="fish-emoji">🐟</div>
+    <p>Good job, hydrated buddy! Your cells are doing the happy dance! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</p>
+  </div>
+
+  <div id="waterNo" class="hidden water-response">
+    <div class="emoticon">(ノ｀⌒´)ノ┫：・┻┻</div>
+    <p>Water is like WiFi for your body - you might still function without it, but everything's gonna be buffering! (╯°□°）╯</p>
+    <ul>
+      <li>💧 75% of your brain is water - don't let it turn into raisin mode! (・_・;)</li>
+      <li>🚽 Your kidneys want a waterfall, not a drought! 🌊</li>
+      <li>🌊 Water helps you glow like a jellyfish in moonlight! ✨</li>
+    </ul>
+    <p>Go drink some H₂O right meow! (=^･ｪ･^=)</p>
+  </div>
+  </div>
+  <script>
+  // Initial elements declaration
+const elements = document.querySelectorAll(
+  'p, .cat-emoticon, .button, .eye-checkup, .message, .glasses-message, .water-check, .water-response'
+);
+
+function toggleMessage() {
+  const message = document.getElementById('hiddenMessage');
+  message.classList.toggle('hidden');
+  message.classList.toggle('visible');
+}
+
+function toggleGlasses() {
+  const glassesMessage = document.getElementById('glassesMessage');
+  glassesMessage.classList.toggle('hidden');
+  glassesMessage.classList.toggle('visible');
+}
+
+function toggleRelax() {
+  const relaxMessage = document.getElementById('relaxMessage');
+  relaxMessage.classList.toggle('hidden');
+  relaxMessage.classList.toggle('visible');
+}
+
+function toggleCalmTips() {
+  const calmTipsMessage = document.getElementById('calmTipsMessage');
+  calmTipsMessage.classList.toggle('hidden');
+  calmTipsMessage.classList.toggle('visible');
+}
+
+function toggleWaterResponse(response) {
+  const yesDiv = document.getElementById('waterYes');
+  const noDiv = document.getElementById('waterNo');
+  
+  if (response === 'yes') {
+    yesDiv.classList.toggle('hidden');
+    yesDiv.classList.toggle('visible');
+    noDiv.classList.add('hidden');
+  } else {
+    noDiv.classList.toggle('hidden');
+    noDiv.classList.toggle('visible');
+    yesDiv.classList.add('hidden');
+  }
+}
+
+// Scroll Animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.5 });
+
+elements.forEach(element => {
+  observer.observe(element);
+});
+</script>
+</body>
+</html>
